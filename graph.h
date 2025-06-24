@@ -7,6 +7,7 @@
 
 #include <vector>
 
+namespace PACE2019{
 using std::vector;
 
 #define BYTES_PER_WORD sizeof(unsigned long long)
@@ -77,5 +78,5 @@ void add_edge(Graph *g, int v, int w);
 void populate_bit_complement_nd(Graph & g);
 
 Graph induced_subgraph(const Graph & g, const vector<int> vv);
-
+}
 #endif

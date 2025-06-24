@@ -2,7 +2,7 @@
 #define FAST_INT_QUEUE_H
 
 #include <assert.h>
-
+namespace PACE2019 {
 // This implementation is very restrictive: it assumes that there are
 // at most `capacity` calls to enqueue() after each call to clear()
 struct FastIntQueue {
@@ -32,5 +32,5 @@ struct FastIntQueue {
         return start == end;
     }
 };
-
+}
 #endif

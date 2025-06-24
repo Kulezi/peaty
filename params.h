@@ -1,6 +1,6 @@
 #ifndef PARAMS_H
 #define PARAMS_H
-
+namespace PACE2019{
 struct Params
 {
     int colouring_variant;
@@ -20,5 +20,5 @@ struct Params
             unweighted_sort(unweighted_sort)
     {}
 };
-
+}
 #endif

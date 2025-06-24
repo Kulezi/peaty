@@ -2,7 +2,7 @@
 #define BITSET_H
 
 #include "graph.h"
-
+namespace PACE2019{
 static void set_first_n_bits(vector<unsigned long long> & bitset, int n)
 {
     int i = 0;
@@ -179,6 +179,7 @@ static void bitset_foreach(const vector<unsigned long long> & bitset, F f, int n
                 f(v);
             }
         }
+}
 }
 
 #endif

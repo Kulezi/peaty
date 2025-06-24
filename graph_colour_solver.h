@@ -3,7 +3,7 @@
 
 #include <atomic>
 #include <vector>
-
+namespace PACE2019 {
 struct ColouringGraph {
     int n;
     std::vector<std::vector<bool>> adj_matrix;
@@ -56,5 +56,5 @@ public:
     void search();
     ColouringNumberFinder(const ColouringGraph & g, int f);
 };
-
+}
 #endif

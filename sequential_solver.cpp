@@ -13,7 +13,7 @@
 #include <memory>
 #include <random>
 #include <vector>
-
+namespace PACE2019 {
 class FastSet
 {
     vector<bool> in_set;
@@ -351,4 +351,5 @@ auto sequential_mwc(const SparseGraph & g, const Params params, VtxList & incumb
 
     MWC(ordered_subgraph, params, incumbent, *colourer, vv0, ls, exact_colourer1, exact_colourer2).run(
             C, search_node_count);
+}
 }

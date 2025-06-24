@@ -1,5 +1,5 @@
 #include "colourer.h"
-
+namespace PACE2019 {
 std::shared_ptr<Colourer> Colourer::create_colourer(Graph & g, const Params & params)
 {
     switch(params.colouring_variant)
@@ -260,4 +260,5 @@ int UnitPropagator::unit_propagate_m1(ListOfClauses & cc, long target_reduction,
     }
 
     return cc.size;
+}
 }

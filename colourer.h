@@ -13,6 +13,7 @@
 #include <memory>
 #include <vector>
 
+namespace PACE2019 {
 using std::vector;
 struct Clause {
     vector<int> vv;
@@ -328,5 +329,6 @@ public:
         return false;
     }
 };
+}
 
 #endif

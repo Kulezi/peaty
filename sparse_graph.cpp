@@ -7,7 +7,7 @@
 #include <ios>
 #include <iostream>
 #include <sstream>
-
+namespace PACE2019 {
 auto deduplicate_and_add_edges(SparseGraph & g, vector<Edge> & edges)
 {
     std::sort(edges.begin(), edges.end());
@@ -273,4 +273,5 @@ SparseGraph fastReadSparseGraphPaceFormat() {
     deduplicate_and_add_edges(g, edges);
 
     return g;
+}
 }

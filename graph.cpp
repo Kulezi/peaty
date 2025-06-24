@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+namespace PACE2019 {
+
 Graph::Graph(int n)
         : n(n), numwords((n+BITS_PER_WORD-1)/BITS_PER_WORD), weight(n),
           bit_complement_nd(n, vector<unsigned long long>(numwords, ~0ull))
@@ -59,4 +61,5 @@ Graph induced_subgraph(const Graph & g, const vector<int> vv) {
     for (int i=0; i<subg.n; i++)
         subg.weight[i] = g.weight[vv[i]];
     return subg;
+}
 }

@@ -1,6 +1,6 @@
 #ifndef INT_STACK_WITHOUT_DUPS_H
 #define INT_STACK_WITHOUT_DUPS_H
-
+namespace PACE2019{
 struct IntStackWithoutDups {
     vector<int> vals;
     vector<unsigned char> on_stack;  // really a vector of boolean values
@@ -27,5 +27,5 @@ struct IntStackWithoutDups {
         return vals.empty();
     }
 };
-
+}
 #endif

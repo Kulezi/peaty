@@ -17,7 +17,7 @@
 #include "util.h"
 #include "sequential_solver.h"
 #include "params.h"
-
+namespace PACE2019{
 using std::atomic;
 using std::condition_variable;
 using std::cv_status;
@@ -612,39 +612,31 @@ auto mwc(SparseGraph g, const Params & params) -> Result
     return result;
 }
 
-int main(int argc, char** argv) {
-    argp_parse(&argp, argc, argv, 0, 0, 0);
+std::vector<int> VC(std::vector<std::vector<int>> input_graph) {
+	arguments.num_threads = 1;
 
-    if (arguments.algorithm_num != 5)
-        arguments.num_threads = 1;
+	int n = input_graph.size();
+	SparseGraph g(n);
+	vector<Edge> edges;
+	for (int u = 0; u < n; u++)
+		for (auto v : input_graph[u])
+			if (u < v) g.add_edge(u, v);
 
-    SparseGraph g =
-            arguments.file_format==FileFormat::Pace ? readSparseGraphPaceFormat() :
-                                                      readSparseGraph();
+	Params params{arguments.colouring_variant,
+				  arguments.max_sat_level,
+				  arguments.algorithm_num,
+				  arguments.num_threads,
+				  arguments.quiet,
+				  arguments.unweighted_sort};
 
-    Params params {arguments.colouring_variant, arguments.max_sat_level, arguments.algorithm_num,
-            arguments.num_threads, arguments.quiet, arguments.unweighted_sort};
+	Result result = mwc(g, params);
 
-    Result result = mwc(g, params);
+	// sort vertices in clique by index
+	std::sort(result.vertex_cover.vv.begin(), result.vertex_cover.vv.end());
 
-    // sort vertices in clique by index
-    std::sort(result.vertex_cover.vv.begin(), result.vertex_cover.vv.end());
+	if (!check_vertex_cover(g, result.vertex_cover.vv))
+		fail("*** Error: invalid solution\n");
 
-    std::cout << "s vc " << g.n << " " << result.vertex_cover.vv.size() << std::endl;
-    for (int v : result.vertex_cover.vv)
-        std::cout << (v+1) << std::endl;
-
-//    printf("Stats: status program algorithm_number max_sat_level num_threads size weight nodes\n");
-//    std::cout <<
-//            (aborted ? "TIMEOUT" : "COMPLETED") << " " <<
-//            argv[0] << " " <<
-//            arguments.algorithm_num << " " <<
-//            arguments.max_sat_level << " " <<
-//            arguments.num_threads << " " <<
-//            result.vertex_cover.vv.size() << " " <<
-//            result.vertex_cover.total_wt <<  " " <<
-//            result.search_node_count << std::endl;
-
-    if (!check_vertex_cover(g, result.vertex_cover.vv))
-        fail("*** Error: invalid solution\n");
+	return result.vertex_cover.vv;
+}
 }

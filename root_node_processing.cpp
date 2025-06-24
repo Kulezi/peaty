@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <thread>
 #include <vector>
-
+namespace PACE2019 {
 vector<int> initialise(const SparseGraph & g) {
 //    printf("Starting init\n");
     vector<int> vv;
@@ -137,4 +137,4 @@ auto reduce_and_reverse_cp_order(vector<int> & vv, const SparseGraph & g,
     vv.resize(new_sz);
 }
 
-
+}

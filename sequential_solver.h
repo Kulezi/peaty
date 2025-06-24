@@ -7,6 +7,7 @@
 
 #include <atomic>
 
+namespace PACE2019{
 auto sequential_mwc(const SparseGraph & g, const Params params, VtxList & incumbent, long & search_node_count) -> void;
-
+}
 #endif

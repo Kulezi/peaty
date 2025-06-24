@@ -9,6 +9,7 @@
 #include <string.h>
 #include <time.h>
 
+namespace PACE2019 {
 ////////////////////////////////////////////////////////////////////////////////
 //                                GRAPH STUFF                                 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -457,4 +458,5 @@ ColouringNumberFinder::ColouringNumberFinder(const ColouringGraph & g, int f)
     std::vector<int> vv = randomised_vertex_order(g, rng_seed);
     ColouringGraph sorted_g = g.induced_subgraph(vv);
     sorted_g.make_adjacency_lists();
+}
 }

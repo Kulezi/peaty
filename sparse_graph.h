@@ -12,7 +12,7 @@
 
 #include "graph.h"
 #include "util.h"
-
+namespace PACE2019{
 using std::vector;
 using Edge = std::pair<int, int>;
 
@@ -205,5 +205,5 @@ SparseGraph readSparseGraph();
 SparseGraph readSparseGraphPaceFormat();
 
 SparseGraph fastReadSparseGraphPaceFormat();
-
+}
 #endif
