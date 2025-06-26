@@ -591,7 +591,7 @@ auto mwc(SparseGraph g, const Params & params) -> Result
 
     Result result(g);
     for (auto & component : components) {
-        std::cout << "c COMPONENT " << component.size() << std::endl;
+        //std::cout << "c COMPONENT " << component.size() << std::endl;
         auto vertex_cover_of_subgraph = find_vertex_cover_of_subgraph(g, component, params);
         for (int v : vertex_cover_of_subgraph) {
             in_cover[v] = true;
@@ -613,7 +613,7 @@ auto mwc(SparseGraph g, const Params & params) -> Result
 }
 
 std::vector<int> VC(std::vector<std::vector<int>> input_graph) {
-	arguments.num_threads = 1;
+	arguments.quiet = true;
 
 	int n = input_graph.size();
 	SparseGraph g(n);
